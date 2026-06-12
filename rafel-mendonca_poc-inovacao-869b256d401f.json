@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "poc-inovacao",
+  "private_key_id": "869b256d401f6a46401cb23308a8fa1b2fd46a44",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCUgnSU2RhU0v8W\naf0f3RCzAJHhpFukPBp12QQyoC40RnWeKeKiNy2wXuGdP4UWP4aQP8n98txT1tm0\nw7SuMmNx6pDeWSm+lnkQIz8U646/alTKXY0p4K3B2hVywqbpauVVBdXTJMwFMetX\n/tF55zEpzrAYQqdQdu9o1+YbTxCk0gqhlXy+App7GPDdqRBTTUQbinHjrRd/iZSt\nGf3W0uCtKBXIbJJauUOSky/K6aCDcDMBD8yAeBXyhdZzmmGpFM7ugPDxsjergCkq\nTiB8f/We6/0WJiBUVHt60R03IpiW1985lBGoSDY/D5edinUWmAgrgwG35U6t1G6G\nQ2sYYsSNAgMBAAECggEAEexzcOo0CJDKnq7ou5QXtDLzvbLzfdfkgv1P3LhTu0AX\nE/a5gUXS6tVuD2d02Dbki7usf6IfELNT5SrgP0yaOfZ1yOV5UfpL3t8SJE6QakPF\nZgMdIBpw035PAQxtzqrLG5QvtrhbM0lPaSMPrycbBOZgKcgUSh7V+Du5FuoCTTyp\nYOcumwXE53zMzgOXVLKcJDF9ktK+zGT0Ql84adBIiYP4kUoMtga8YSlHDjKraZNl\ni9QO40RsUw0mvTSRGp9yCMMXaZ2iWjG7nqwCpiZTgj0Z0drG5IZ+N5Ze91CkRSf5\n8jFSFyxjOuVVmbkI99Yzf72/ZNHhO6qeasNN6es/FQKBgQDDnQ4/HojxvmhJG/K3\nx+mfXn4ILf4FrQXvWfM5nB/+N8/HXcp72N9PSXUq7zG7wg2RdGtjY8/KCKbtxhQP\nu9il+fKnEdxXcYLmJ9mYacNdZUlX3OuJ0PuHEqadr6ub4DrAoZ3oyB48e27UR4+0\nqe14R+i4RAvv223WxR8a8WpRGwKBgQDCWt851yG2uK+yStI2UGZTAuIsOgxb70jL\nhu5yYD3iBcaKVpFzumPh+Fgbo5K6o9d/sBWc0khFSOxpfdnruKJWimznQWeu7b6L\nI5wBy2SrMdDGa9F+o5/70ORzwh+q9DVBZEwzEMhyCSyDBhpA1UxeImqC2boJ9qpo\nEVo7zwdDdwKBgBJI5gIEaqyeLcVXtXJ0X2QkQwektO/24m0jLVcfPuZWdTefjsPQ\n297fcPJYdX+lffswtLEPrWanNGNZdpqZ5oBtQr9XLg+GbsPwyagziq16QEbUQbga\nLsjLd4OZ3iKt7RAAi3As9JaWux9gqRAsKiRqJFjFE5CSJExFFMlB87wtAoGBALJO\n6ImKQ9X9bsPmPSGzdY0nEhV9VCVsTJ7dNhodDek1X0c/0MYZ9NU2IK+KzG0LMARn\nqgxsJ/3Yv3yxB6NpixZWfT9VFCi62ZuRmelTjxI4689+z36d44MFzPIe4SrYTZum\nxvn6pctpezrh+GgOyLd8X7eYxUOq2AAOG3jPoVxVAoGBALrNiql2rVtPBdPQPhIh\nXtHd4tak0g8VDh9MRvB6ENMnMF6aInuCc14sv7YtUvv2r4Zmvt++BqFxsSexn8Qe\nx5TW+ROPl0M9xfK1Vm0mLfYG6uQOiD+Wf9dITPVRoEj1O1mK+F7y7OgWRLtTIYQp\nxTFrl3w46P2V7QOsSlt3paxh\n-----END PRIVATE KEY-----\n",
+  "client_email": "rafael-mendoca@poc-inovacao.iam.gserviceaccount.com",
+  "client_id": "110312273711808195384",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/rafael-mendoca%40poc-inovacao.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

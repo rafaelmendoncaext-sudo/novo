@@ -1,0 +1,23 @@
+# Blueprint do Render (https://render.com) para o webhook do WhatsApp da Carol.
+# Crie o serviço via "New > Blueprint" apontando para o repositório com este arquivo.
+services:
+  - type: web
+    name: carol-autorizacoes
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120
+    healthCheckPath: /
+    envVars:
+      - key: VERTEX_PROJECT
+        value: poc-inovacao
+      - key: VERTEX_LOCATION
+        value: us-central1
+      - key: VERTEX_MODEL
+        value: gemini-2.5-flash
+      # Cole o CONTEÚDO do JSON da service account aqui (marcado como secret).
+      - key: GOOGLE_CREDENTIALS_JSON
+        sync: false
+      # Opcional: token do Twilio para validar a assinatura dos webhooks.
+      - key: TWILIO_AUTH_TOKEN
+        sync: false

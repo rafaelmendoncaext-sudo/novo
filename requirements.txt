@@ -1,0 +1,9 @@
+langgraph
+langgraph-checkpoint-sqlite
+langchain-core
+langchain-google-vertexai
+google-auth
+flask
+python-dotenv
+twilio
+gunicorn
