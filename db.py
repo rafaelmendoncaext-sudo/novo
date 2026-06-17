@@ -3,65 +3,9 @@ Acesso ao banco SQLite de pedidos (pedidos.db).
 """
 import os
 import sqlite3
-import sys
 from typing import List
 
-_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH   = os.path.join(_DIR, "pedidos.db")
-XLSX_PATH = os.path.join(_DIR, "pedidos.xlsx")
-
-
-def _seed_agora():
-    """Cria pedidos.db a partir de pedidos.xlsx quando o arquivo está ausente."""
-    import pandas as pd
-    print("db.py: pedidos.db ausente — criando a partir de pedidos.xlsx ...", flush=True)
-    df = pd.read_excel(XLSX_PATH, dtype=str)
-    df = df.where(pd.notna(df), None)
-    conn = sqlite3.connect(DB_PATH)
-    cur  = conn.cursor()
-    cur.execute("DROP TABLE IF EXISTS pedidos")
-    cur.execute("""
-        CREATE TABLE pedidos (
-            NUM_PEDIDO          TEXT,
-            NUM_SEQ_PEDIDO      TEXT,
-            NOM_SITUACAO        TEXT,
-            NR_BENEFICIARIO     TEXT,
-            ITEM_MEDICO         TEXT,
-            NOME_ITEM           TEXT,
-            DS_SITUACAOITEM     TEXT,
-            DS_SITUACAOESPECIAL TEXT,
-            COD_PRESTADOR_EXEC  TEXT,
-            NOME_PRESTADOR      TEXT,
-            TXT_OBS_EMISSAO     TEXT,
-            TXT_OBS_OPERADORA   TEXT
-        )
-    """)
-    cur.executemany(
-        "INSERT INTO pedidos VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
-        df.itertuples(index=False, name=None),
-    )
-    cur.execute("CREATE INDEX idx_beneficiario ON pedidos(NR_BENEFICIARIO)")
-    conn.commit()
-    conn.close()
-    print(f"db.py: pedidos.db criado ({os.path.getsize(DB_PATH) / 1024 / 1024:.1f} MB).", flush=True)
-
-
-def _garantir_db():
-    """Garante que pedidos.db existe e tem a tabela pedidos."""
-    try:
-        with sqlite3.connect(DB_PATH) as c:
-            c.execute("SELECT 1 FROM pedidos LIMIT 1")
-    except sqlite3.OperationalError:
-        if os.path.exists(XLSX_PATH):
-            _seed_agora()
-        else:
-            raise RuntimeError(
-                f"pedidos.db ausente e pedidos.xlsx não encontrado em {_DIR}. "
-                "Inclua pedidos.xlsx no repositório ou rode seed_db.py manualmente."
-            )
-
-
-_garantir_db()
+DB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pedidos.db")
 
 
 def _conn():

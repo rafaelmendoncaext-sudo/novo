@@ -1,0 +1,17 @@
+# Credenciais — NUNCA commitar a service account
+rafel-mendonca_poc-inovacao-*.json
+*.json
+!render.json
+
+# Ambiente
+.venv/
+__pycache__/
+*.pyc
+.env
+
+# pedidos.db é commitado diretamente no repositório (54 MB, abaixo do limite do GitHub)
+# Para atualizar, rode seed_db.py localmente e re-commite o pedidos.db
+# pedidos.db
+
+# SO
+.DS_Store
