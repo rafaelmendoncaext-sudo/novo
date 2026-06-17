@@ -112,12 +112,16 @@ SqliteSaver.from_conn_string = staticmethod(_from_conn_string)
 # ---------------------------------------------------------------------------
 from langchain_google_vertexai import ChatVertexAI
 
+# max_retries=1 → 1 tentativa, sem retry: falha rápida (0.2s) quando a SA key é inválida.
+# No Render com key válida, set LLM_MAX_RETRIES=3 para resiliência contra erros 5xx.
+_LLM_MAX_RETRIES = int(os.environ.get("LLM_MAX_RETRIES", "1"))
+
 model = ChatVertexAI(
     model=MODELO,
     project=PROJETO,
     location=LOCALIZACAO,
     temperature=0,
-    max_retries=3,
+    max_retries=_LLM_MAX_RETRIES,
 )
 
 

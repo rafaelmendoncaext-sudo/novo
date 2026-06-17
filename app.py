@@ -424,8 +424,8 @@ def chat():
         resposta = estado.get("resposta") or "Desculpe, não consegui processar agora."
         etapa = estado.get("etapa", "")
     except Exception as exc:
-        app.logger.exception("Falha no fluxo de autorizações")
-        resposta = f"Instabilidade técnica ({type(exc).__name__}). Verifique a credencial/Vertex e tente novamente. 🙏"
+        app.logger.exception("Falha no fluxo de autorizações: %s", exc)
+        resposta = "Ocorreu um erro interno. Por favor, tente novamente em alguns instantes. 🙏"
         etapa = "erro"
     out = jsonify({"resposta": resposta, "etapa": etapa})
     resp = make_response(out)
