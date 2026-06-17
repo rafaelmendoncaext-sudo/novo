@@ -24,6 +24,7 @@ Mapa de etapas:
 """
 
 import operator
+import os
 import re
 from typing import TypedDict, Annotated, List
 
@@ -34,7 +35,10 @@ from langchain_core.messages import SystemMessage, HumanMessage
 from common import model
 import db as pedidos_db
 
-memory = SqliteSaver.from_conn_string(":memory:")
+# CHECKPOINT_DB: ":memory:" (dev padrão) ou caminho de arquivo (ex: /tmp/carol.db no Render)
+# Usar arquivo persiste sessões entre reinicios do worker; memory as descarta.
+_CHECKPOINT_DB = os.environ.get("CHECKPOINT_DB", ":memory:")
+memory = SqliteSaver.from_conn_string(_CHECKPOINT_DB)
 
 LOCALIDADES = [
     "São Paulo CAPITAL e ABC",
