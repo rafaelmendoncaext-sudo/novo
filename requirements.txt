@@ -4,6 +4,12 @@ langchain-core
 langchain-google-vertexai
 google-auth
 flask
-python-dotenv
-twilio
 gunicorn
+python-dotenv
+requests
+twilio
+pandas
+openpyxl
+# openai-whisper requer PyTorch (~1 GB) — incompatível com o free tier do Render (512 MB RAM).
+# Para habilitar transcrição de áudio, use um plano pago e descomente a linha abaixo.
+# openai-whisper

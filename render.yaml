@@ -5,8 +5,8 @@ services:
     name: carol-autorizacoes
     runtime: python
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --timeout 120
+    buildCommand: pip install -r requirements.txt && python seed_db.py
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 1 --timeout 180
     healthCheckPath: /
     envVars:
       - key: VERTEX_PROJECT
@@ -15,9 +15,29 @@ services:
         value: us-central1
       - key: VERTEX_MODEL
         value: gemini-2.5-flash
+      # Arquivo SQLite para checkpoints do LangGraph (persiste sessões entre reinicios)
+      - key: CHECKPOINT_DB
+        value: /tmp/carol_checkpoints.db
+      # Retries do LLM: 3 no Render (SA key válida, handles 5xx); 1 localmente (SA key inválida)
+      - key: LLM_MAX_RETRIES
+        value: "3"
       # Cole o CONTEÚDO do JSON da service account aqui (marcado como secret).
       - key: GOOGLE_CREDENTIALS_JSON
         sync: false
-      # Opcional: token do Twilio para validar a assinatura dos webhooks.
+      # --- WhatsApp via Meta (Cloud API) ---
+      - key: META_VERIFY_TOKEN
+        value: carol-unimed
+      - key: META_ACCESS_TOKEN
+        sync: false
+      - key: META_PHONE_NUMBER_ID
+        sync: false
+      # --- Z-API (WhatsApp via QR Code) ---
+      - key: ZAPI_INSTANCE_ID
+        sync: false
+      - key: ZAPI_TOKEN
+        sync: false
+      - key: ZAPI_CLIENT_TOKEN
+        sync: false
+      # --- Twilio (opcional / legado) ---
       - key: TWILIO_AUTH_TOKEN
         sync: false
